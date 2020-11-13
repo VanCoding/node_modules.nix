@@ -1,7 +1,7 @@
 with import <nixpkgs> {};
 
 let
-    buildNodeModules = callPackage ../../buildNodeModules.nix {npm = nodePackages.npm;};
+    buildNodeModules = callPackage ../../buildNodeModules.nix {};
     node_modules = import ./node_modules.nix {inherit buildNodeModules;};
     express-app = callPackage ./default.nix {inherit nodejs node_modules;};
 in

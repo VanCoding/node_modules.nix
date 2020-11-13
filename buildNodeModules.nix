@@ -1,4 +1,4 @@
-{lib,stdenv,runCommand,coreutils,fetchurl,npm}:
+{lib,stdenv,runCommand,coreutils,fetchurl,nodejs}:
 {directory,buildInputs?[]}:
 let
     buildCache = import ./buildCache.nix {inherit lib runCommand coreutils fetchurl;};
@@ -6,7 +6,7 @@ let
     derivation = stdenv.mkDerivation {
         pname = "node_modules";
         version = "";
-        buildInputs=[npm coreutils]++buildInputs;
+        buildInputs=[nodejs coreutils]++buildInputs;
         phases = ["buildPhase" "patchPhase" "fixupPhase" ];
         buildPhase = ''
             cp ${directory}/package-lock.json ./package-lock.json
