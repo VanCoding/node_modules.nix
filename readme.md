@@ -4,7 +4,7 @@ This is a nix library that can turn your package-lock.json into a fully populate
 
 ## how it works
 
-Under the hood, node_modules.nix calls `npm ci`. But because npm cannot fetch packages from the internet inside the nix sandbox, an npm package cache gets constructed first and then handed over to npm for usage. npm will find every single package inside this cache and thus won't have to download anything. It's basically the same as when calling `npm ci` twice in a row. On the first time, npm caches everything it downloads, on the second thame it gets everything from the cache.
+Under the hood, node_modules.nix calls `npm ci`. But because npm cannot fetch packages from the internet inside the nix sandbox, an npm package cache gets constructed first and then handed over to npm for usage. npm will find every single package inside this cache and thus won't have to download anything. It's basically the same as when calling `npm ci` twice in a row. On the first time, npm caches everything it downloads, on the second time it gets everything from the cache.
 
 ## advantages over node2nix
 
