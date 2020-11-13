@@ -1,0 +1,6 @@
+{
+  "compilerOptions": {
+    "outFile": "./app.js"
+  },
+  "include": ["src/**/*"]
+}
