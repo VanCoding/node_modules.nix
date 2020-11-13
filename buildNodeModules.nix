@@ -1,5 +1,5 @@
-{lib,stdenv,runCommand,coreutils,fetchurl,npm,buildInputs}:
-{directory}:
+{lib,stdenv,runCommand,coreutils,fetchurl,npm}:
+{directory,buildInputs?[]}:
 let
     buildCache = import ./buildCache.nix {inherit lib runCommand coreutils fetchurl;};
     cache = buildCache {packageLockPath = "${directory}/package-lock.json";};
@@ -16,14 +16,5 @@ let
             mv node_modules $out/node_modules/
         '';
     };
-    old_derivation = runCommand "node_modules" {buildInputs = [npm coreutils];} ''
-        cp ${directory}/package-lock.json ./package-lock.json
-        cp ${directory}/package.json ./package.json
-        npm ci --cache ${cache}
-        mkdir $out
-        patchShebangs ./node_modules/.bin/tsc
-        cat ./node_modules/.bin/tsc
-        mv node_modules $out/node_modules/
-    '';
 in
     "${derivation}/node_modules"
