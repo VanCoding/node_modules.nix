@@ -13,8 +13,9 @@ in rec {
         chmod +x $out/bin/express-app
     '';
     shell = mkShell {
+        buildInputs = [app];
         shellHook = ''
-            ln -sf ${node_modules} node_modules
+            ln -sfn ${node_modules} node_modules
         '';
     };
 }

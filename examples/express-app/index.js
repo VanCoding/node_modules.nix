@@ -5,3 +5,4 @@ app.get("/", (req, res) => {
   res.end("hello world");
 });
 app.listen(8080);
+console.log("visit http://localhost:8080");
