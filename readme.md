@@ -22,6 +22,14 @@ This is just a proof of concept for now to show to people and to get some feedba
 ## contributing
 
 I'm looking for feedback to this idea. I'll happily discuss the future of node_modules.nix with you.
+There's also some good discussion going on on https://discourse.nixos.org/t/node-modules-nix/10004
+
+## similar projects
+
+It turned out that there are 2 projects that do basically the same as node_modules.nix:
+
+- [npmlock2nix](https://github.com/tweag/npmlock2nix)
+- [nix-npm-buildpackage](https://github.com/serokell/nix-npm-buildpackage)
 
 ## license
 
